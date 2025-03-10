@@ -27,7 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             /* session_destroy() cierra la session destruye la sesion activa */
             }
     }
-    
     <!DOCTYPE html>
     <html lang="es">
     <head>
@@ -42,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h2 class="subtitle">SIS-FARAO</h2>
             <div class="form-container">
                 <?php if (isset($error)) { echo "<p style='color: red;'>$error</p>"; } ?>
-                <form method="POST" action="">
+                <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                     <label for="username">Usuario:</label>
                     <input type="text" id="username" name="username" placeholder="Ingrese usuario" required>
                     

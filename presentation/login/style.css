@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative; /* Permite la ubicación absoluta del logo */
+}
+
+.form-container {
+    background-color: rgba(128, 128, 128, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input {
+    width: 220px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #35605A;
+    border-radius: 5px;
+    background-color: #00ffcc;
+}
+
+input::placeholder {
+    color: #aaaaaa;
+}
+
+button {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #00ffcc;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #00cc99;
+}
+
+.logo-container {
+    position: absolute; /* Asegura que el logo esté en la parte superior derecha */
+    top: 10px;
+    right: 10px;
+}
+
+.logo {
+    width: 150px; /* Hizo el logo más grande */
+    height: 150px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
