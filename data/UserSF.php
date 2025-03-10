@@ -1,11 +1,11 @@
 <?php
 require_once __DIR__ . '/../config/Database.php';
 
-class UserDAO
+class UserSF
 {
-    private $conn//Llamamos la coneccion 
+    private $conn; //Llamamos la coneccion 
 
-    public function __construc()
+    public function __construct()
     {
         $database = new Database();
         $this->conn = $database->getConnection(); // esto devuelve la conexion con mysql y esto permite que la clase pueda hacer consultas en SQL
@@ -34,7 +34,7 @@ class UserDAO
     }
 
     //Metodo para obtener los datos del usuario para su validacion
-    public function getUserByUsername($username):
+    public function getUserByUsername($username)
     {
         $query = "CALL GetUserByUsername(:p_username)";
         $stmt = $this->conn->prepare($query);
@@ -48,7 +48,7 @@ class UserDAO
         return null;
     }
 
-    
+
 
     
 }

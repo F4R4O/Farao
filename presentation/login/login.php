@@ -1,14 +1,11 @@
 <?php
-require_once '../../business/UsuarioService.php';
+session_start();
+require_once '../../business/UsuarioService.php'; // Asegúrate de que la clase UserService está correctamente incluida
 
-session_start();//inicia la variable de secion 
-
-$error = '';//variable almace error
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //hay una solicitud de tipo POST, el usuario esta enviando datos
-    $email = trim($_POST['email']);//variables las cuales almacen los datos que envia el usuario
-    $password = trim($_POST['password']);//$_POST[''];--->atrapa los datos que envia el usuario
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);//$_POST['']=atrapa los datos que envia el usuario
     $userService = new UserService();
         //uso del authenticate para validar el login
         if ($userService->authenticate($email, $password)) {
@@ -27,35 +24,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             /* session_destroy() cierra la session destruye la sesion activa */
             }
     }
-    <!DOCTYPE html>
-    <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <title>Inicio de Sesión</title>
-    </head>
-    <body>
-        <div class="container">
-            <h1 class="title">INICIAR SESIÓN</h1>
-            <h2 class="subtitle">SIS-FARAO</h2>
-            <div class="form-container">
-                <?php if (isset($error)) { echo "<p style='color: red;'>$error</p>"; } ?>
-                <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                    <label for="username">Usuario:</label>
-                    <input type="text" id="username" name="username" placeholder="Ingrese usuario" required>
-                    
-                    <label for="password">Contraseña:</label>
-                    <input type="password" id="password" name="password" placeholder="Ingrese contraseña" required>
-                    
-                    <button type="submit">Iniciar Sesión</button>
-                </form>
-            </div>
-            <div class="logo-container">
-                <div class="logo">Logo</div>
-            </div>
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Inicio de Sesión</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">INICIAR SESIÓN</h1>
+        <h2 class="subtitle">SIS-FARAO</h2>
+        <div class="form-container">
+            <?php if (isset($error)) { echo "<p style='color: red;'>$error</p>"; } ?>
+            <form method="POST" action="">
+                <label for="email">Usuario:</label>
+                <input type="text" id="email" name="email" placeholder="Ingrese usuario" required>
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" placeholder="Ingrese contraseña" required>
+                <button type="submit">Iniciar Sesión</button>
+            </form>
         </div>
-    </body>
-    </html>
-
-
+    </div>
+</body>
+</html>

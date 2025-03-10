@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../data/UsuarioSF.php';
+require_once __DIR__ . '/../data/UserSF.php';
 
 class UserService
 {
